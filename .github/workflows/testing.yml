@@ -1,18 +1,47 @@
-name: Тестирование
+# MIT License
+# Copyright (C) 2020 Tymko Oleg <olegtymko@yandex.ru> and contributors
+# All rights reserved.
 
-on:
-  push:
-  pull_request:
-  workflow_dispatch:
+name: Тестирование
+# Любой пуш и pr в проекте
+on: [push, pull_request]
 
 jobs:
-  test:
-    strategy:
-      fail-fast: false
-      matrix:
-        oscript_version: ['default', 'stable', 'dev']
-        v8_version: ['8.3.24.1548', '8.3.23.1997']
-    uses: segate-ekb/workflows/.github/workflows/test.yml@v1
-    with:
-      oscript_version: ${{ matrix.oscript_version }}
-      v8_version: ${{matrix.v8_version}}
+  build:
+    runs-on: [vanessa]
+    # runs-on: ${{ matrix.os }}
+    # strategy:
+    #   fail-fast: false
+    #   matrix:
+    #     # os: [ubuntu-latest, windows-latest]
+    #     oscript_version: ['1.4.0']
+
+    steps:
+      # Загрузка проекта
+      - name: Актуализация
+        uses: actions/checkout@v4
+        with:
+          # Disabling shallow clone is recommended for improving relevancy of reporting
+          fetch-depth: 0
+
+      # Установка OneScript конкретной версии
+      # - name: Установка OneScript
+      #   uses: otymko/setup-onescript@v1.1
+      #   with:
+      #     version: ${{ matrix.oscript_version }}
+
+      # Установка зависимостей пакета
+      - name: Установка зависимостей
+        shell: cmd
+        run: |
+          call opm install --dev
+          call opm install -l
+          call opm u v8unpack@1.0.5
+        # run: |
+        #   opm install opm
+        #   opm install add
+        #   opm install --dev
+
+      # Задача тестирования, в результате ожидается успешное выполнение
+      - name: Тестирование
+        run: oscript ./tasks/test.os
