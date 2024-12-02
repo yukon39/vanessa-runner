@@ -94,10 +94,7 @@ jobs:
               sudo tee /opt/1cv8/conf/conf.cfg > /dev/null <<EOF
               DisableUnsafeActionProtection=.*
               SystemLanguage=System
-              EOF
-
-              sudo chown root:grp1cv8 /opt/1cv8/conf/conf.cfg
-              
+              EOF              
               # Назначение прав
               sudo chmod 777 -R /opt/1cv8/conf/
 
