@@ -106,9 +106,6 @@ jobs:
             
           # Запись лицензии в файл
           echo "${{ secrets.ONEC_LICENCE }}" | sudo tee /var/1C/licenses/licence.lic > /dev/null
-            
-          # Назначение группы владельца каталога
-          sudo chown root:grp1cv8 /var/1C/licenses/licence.lic
               
           # Назначение прав
           sudo chmod 777 -R /var/1C/licenses
