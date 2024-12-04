@@ -1096,6 +1096,13 @@
 					"type": "boolean",
 					"default": false
 				},
+				"--ibsrv": {
+					"description": "Запуск команды с использованием утилиты ibsrv",
+					"id": "/properties/xunit/--ibsrv",
+					"title": "The --ibsrv Schema",
+					"type": "boolean",
+					"default": false
+				},
 				"--ibconnection": {
 					"description": "Строка подключения к БД (/FfilePath или /SserverPath)\n\tНапример, для файловых баз --ibconnection /FC:\\base1 или --ibconnection /F./base1 или --ibconnection /Fbase1\n\tИли для серверных баз --ibconnection /Sservername\\basename",
 					"id": "/properties/xunit/--ibconnection",
@@ -1272,6 +1279,13 @@
 					"type": "boolean",
 					"default": false
 				},
+				"--ibsrv": {
+					"description": "Запуск команды с использованием утилиты ibsrv",
+					"id": "/properties/vanessa/--ibsrv",
+					"title": "The --ibsrv Schema",
+					"type": "boolean",
+					"default": false
+				},
 				"--ibconnection": {
 					"description": "Строка подключения к БД (/FfilePath или /SserverPath)\n\tНапример, для файловых баз --ibconnection /FC:\\base1 или --ibconnection /F./base1 или --ibconnection /Fbase1\n\tИли для серверных баз --ibconnection /Sservername\\basename",
 					"id": "/properties/vanessa/--ibconnection",
@@ -1434,6 +1448,13 @@
 					"type": "string",
 					"default": ""
 				},
+				"--ibsrv": {
+					"description": "Запуск команды с использованием утилиты ibsrv",
+					"id": "/properties/run/--ibsrv",
+					"title": "The --ibsrv Schema",
+					"type": "boolean",
+					"default": false
+				},
 				"--ibconnection": {
 					"description": "Строка подключения к БД (/FfilePath или /SserverPath)\n\tНапример, для файловых баз --ibconnection /FC:\\base1 или --ibconnection /F./base1 или --ibconnection /Fbase1\n\tИли для серверных баз --ibconnection /Sservername\\basename",
 					"id": "/properties/run/--ibconnection",
@@ -1581,6 +1602,13 @@
 					"title": "The --storage-pwd Schema",
 					"type": "string",
 					"default": ""
+				},
+				"--ibsrv": {
+					"description": "Запуск команды с использованием утилиты ibsrv",
+					"id": "/properties/designer/--ibsrv",
+					"title": "The --ibsrv Schema",
+					"type": "boolean",
+					"default": false
 				},
 				"--ibconnection": {
 					"description": "Строка подключения к БД (/FfilePath или /SserverPath)\n\tНапример, для файловых баз --ibconnection /FC:\\base1 или --ibconnection /F./base1 или --ibconnection /Fbase1\n\tИли для серверных баз --ibconnection /Sservername\\basename",
@@ -8635,6 +8663,13 @@
 					"description": "Не завершать работу 1С:Предприятие после выполнения тестов",
 					"id": "/properties/default/--no-shutdown",
 					"title": "The --no-shutdown Schema",
+					"type": "boolean",
+					"default": false
+				},
+				"--ibsrv": {
+					"description": "Запуск команды с использованием утилиты ibsrv",
+					"id": "/properties/default/--ibsrv",
+					"title": "The --ibsrv Schema",
 					"type": "boolean",
 					"default": false
 				},
