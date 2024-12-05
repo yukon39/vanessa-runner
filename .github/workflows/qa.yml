@@ -63,7 +63,7 @@ jobs:
         with:
           type: onec # Тип устанавливаемого приложения
           onec_version: ${{ matrix.v8_version }}
-          cache: true
+          cache: false
         env: 
           ONEC_USERNAME: ${{ secrets.ONEC_USERNAME }}
           ONEC_PASSWORD: ${{ secrets.ONEC_PASSWORD }} 
