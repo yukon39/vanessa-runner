@@ -3,7 +3,7 @@
 &Пластилин("КонтекстВанессаMCP")
 Перем КонтекстMCP;
 
-&ПараметрИнструмента(Имя = "dbms-type", Описание = "Тип СУБД: MSSQLServer, PostgreSQL, IBMDB2, OracleDatabase")
+&ПараметрИнструмента(Имя = "dbms-type", Описание = "Тип СУБД. Значения: MSSQLServer, PostgreSQL, IBMDB2, OracleDatabase")
 Перем ТипСУБД;
 
 &ПараметрИнструмента(Имя = "dbms-server", Описание = "Адрес сервера СУБД")
