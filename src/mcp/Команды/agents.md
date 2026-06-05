@@ -31,9 +31,52 @@ LLM → infobase-init { source: "…" }            →  ПодкомандаInfo
 
 ## Реестр
 
+Инструменты создаются только для подкоманд с `&ВыполнениеКоманды` (42 шт.). Родительские подкоманды-группы (`ПодкомандаClusterSession`, `ПодкомандаClusterJobs`) — без MCP-tool.
+
 | CLI-подкоманда | MCP tool | Файл | Параметры команды |
 |----------------|----------|------|-------------------|
-| `ПодкомандаInfobaseInit` (`infobase init`) | `infobase-init` | `Infobase_Подкоманды/ИнструментInfobaseInit.os` | `source` |
+| `ПодкомандаCfCompare` | `cf-compare` | `Cf_Подкоманды/ИнструментCfCompare.os` | `second-cf`, `first-cf`, `report-dir`, `report-type`, `report-format` |
+| `ПодкомандаCfCompile` | `cf-compile` | `Cf_Подкоманды/ИнструментCfCompile.os` | `OUT`, `s src`, `list` |
+| `ПодкомандаCfDecompile` | `cf-decompile` | `Cf_Подкоманды/ИнструментCfDecompile.os` | `cf-file`, `OUT` |
+| `ПодкомандаCfLoad` | `cf-load` | `Cf_Подкоманды/ИнструментCfLoad.os` | `SRC`, `list`, `increment`, `update-db` |
+| `ПодкомандаCfMakeDist` | `cf-make-dist` | `Cf_Подкоманды/ИнструментCfMakeDist.os` | — |
+| `ПодкомандаCfMerge` | `cf-merge` | `Cf_Подкоманды/ИнструментCfMerge.os` | `s src`, `merge-settings`, `enable-support`, `disable-support`, `IncludeObjectsByUnresolvedRefs`, `ClearUnresolvedRefs`, `force` |
+| `ПодкомандаCfUnload` | `cf-unload` | `Cf_Подкоманды/ИнструментCfUnload.os` | `OUT` |
+| `ПодкомандаCfeCompare` | `cfe-compare` | `Cfe_Подкоманды/ИнструментCfeCompare.os` | `extension-name`, `first-cfe`, `second-cfe`, `report-file`, `report-type`, `report-format` |
+| `ПодкомандаCfeCompile` | `cfe-compile` | `Cfe_Подкоманды/ИнструментCfeCompile.os` | `OUT`, `s src`, `extension-name` |
+| `ПодкомандаCfeDecompile` | `cfe-decompile` | `Cfe_Подкоманды/ИнструментCfeDecompile.os` | `cfe-file`, `OUT`, `extension-name` |
+| `ПодкомандаCfeLoad` | `cfe-load` | `Cfe_Подкоманды/ИнструментCfeLoad.os` | `SRC`, `extension-name`, `safe-mode`, `active`, … |
+| `ПодкомандаCfeUnload` | `cfe-unload` | `Cfe_Подкоманды/ИнструментCfeUnload.os` | `OUT`, `extension-name` |
+| `ПодкомандаClusterCreate` | `cluster-create` | `Cluster_Подкоманды/ИнструментClusterCreate.os` | `ib-locale`, `no-create-db`, `lock-jobs` |
+| `ПодкомандаClusterInfo` | `cluster-info` | `Cluster_Подкоманды/ИнструментClusterInfo.os` | — |
+| `ПодкомандаClusterJobsLock` | `cluster-jobs-lock` | `Cluster_Подкоманды/Jobs_Подкоманды/ИнструментClusterJobsLock.os` | — |
+| `ПодкомандаClusterJobsUnlock` | `cluster-jobs-unlock` | `Cluster_Подкоманды/Jobs_Подкоманды/ИнструментClusterJobsUnlock.os` | — |
+| `ПодкомандаClusterRemove` | `cluster-remove` | `Cluster_Подкоманды/ИнструментClusterRemove.os` | `drop-db`, `clear-db` |
+| `ПодкомандаClusterSessionKill` | `cluster-session-kill` | `Cluster_Подкоманды/Session_Подкоманды/ИнструментClusterSessionKill.os` | `no-lock` |
+| `ПодкомандаClusterSessionLock` | `cluster-session-lock` | `Cluster_Подкоманды/Session_Подкоманды/ИнструментClusterSessionLock.os` | `permission-code`, `denied-message` |
+| `ПодкомандаClusterSessionUnlock` | `cluster-session-unlock` | `Cluster_Подкоманды/Session_Подкоманды/ИнструментClusterSessionUnlock.os` | — |
+| `ПодкомандаEpfCompile` | `epf-compile` | `Epf_Подкоманды/ИнструментEpfCompile.os` | `SRC`, `R recursive`, `out` |
+| `ПодкомандаEpfDecompile` | `epf-decompile` | `Epf_Подкоманды/ИнструментEpfDecompile.os` | `SRC`, `R recursive`, `out` |
+| `ПодкомандаInfobaseDumpDt` | `infobase-dump-dt` | `Infobase_Подкоманды/ИнструментInfobaseDumpDt.os` | `OUT` |
+| `ПодкомандаInfobaseInit` | `infobase-init` | `Infobase_Подкоманды/ИнструментInfobaseInit.os` | `source` |
+| `ПодкомандаInfobaseRestoreDt` | `infobase-restore-dt` | `Infobase_Подкоманды/ИнструментInfobaseRestoreDt.os` | `IN` |
+| `ПодкомандаInfobaseUpdate` | `infobase-update` | `Infobase_Подкоманды/ИнструментInfobaseUpdate.os` | `source`, `target`, `increment` |
+| `ПодкомандаRepoBind` | `repo-bind` | `Repo_Подкоманды/ИнструментRepoBind.os` | `ignore-already-bound`, `do-not-replace-cfg` |
+| `ПодкомандаRepoCommit` | `repo-commit` | `Repo_Подкоманды/ИнструментRepoCommit.os` | `objects`, `comment`, `keep-locked`, `force` |
+| `ПодкомандаRepoCopyUser` | `repo-copy-user` | `Repo_Подкоманды/ИнструментRepoCopyUser.os` | `source-storage-name`, `source-storage-user`, `source-storage-pwd`, `restore-deleted` |
+| `ПодкомандаRepoCreate` | `repo-create` | `Repo_Подкоманды/ИнструментRepoCreate.os` | — |
+| `ПодкомандаRepoCreateUser` | `repo-create-user` | `Repo_Подкоманды/ИнструментRepoCreateUser.os` | `new-user-name`, `new-user-pwd`, `new-user-role` |
+| `ПодкомандаRepoLoad` | `repo-load` | `Repo_Подкоманды/ИнструментRepoLoad.os` | — |
+| `ПодкомандаRepoLock` | `repo-lock` | `Repo_Подкоманды/ИнструментRepoLock.os` | `objects`, `revised` |
+| `ПодкомандаRepoSaveCf` | `repo-save-cf` | `Repo_Подкоманды/ИнструментRepoSaveCf.os` | `OUT` |
+| `ПодкомандаRepoUnbind` | `repo-unbind` | `Repo_Подкоманды/ИнструментRepoUnbind.os` | — |
+| `ПодкомандаRepoUnlock` | `repo-unlock` | `Repo_Подкоманды/ИнструментRepoUnlock.os` | `objects`, `force` |
+| `ПодкомандаRunDesigner` | `run-designer` | `Run_Подкоманды/ИнструментRunDesigner.os` | `no-wait`, `additional` |
+| `ПодкомандаRunEnterprise` | `run-enterprise` | `Run_Подкоманды/ИнструментRunEnterprise.os` | `command`, `execute`, `url`, `no-wait`, `exitCodePath` |
+| `ПодкомандаTestVanessa` | `test-vanessa` | `Test_Подкоманды/ИнструментTestVanessa.os` | `feature-path`, `bddrunner-path`, … |
+| `ПодкомандаTestXunit` | `test-xunit` | `Test_Подкоманды/ИнструментTestXunit.os` | `TESTSPATH`, `workspace`, … |
+| `ПодкомандаValidateEdt` | `validate-edt` | `Validate_Подкоманды/ИнструментValidateEdt.os` | — |
+| `ПодкомандаValidateSyntaxcheck` | `validate-syntax-check` | `Validate_Подкоманды/ИнструментValidateSyntaxcheck.os` | `mode`, `junitpath`, `exception-file`, `groupbymetadata`, `testsuitename` |
 
 Именование:
 
@@ -51,6 +94,8 @@ LLM → infobase-init { source: "…" }            →  ПодкомандаInfo
 |-----|----------|
 | `КомандаInfobase` + `init` | `infobase-init` |
 | `КомандаInfobase` + `restore-dt` | `infobase-restore-dt` |
+| `КомандаCluster` + `session` + `lock` | `cluster-session-lock` |
+| `КомандаCluster` + `jobs` + `unlock` | `cluster-jobs-unlock` |
 
 ## Соответствие CLI → MCP
 
@@ -187,6 +232,8 @@ LLM → infobase-init { source: "…" }            →  ПодкомандаInfo
 8. Добавить строку в реестр этого файла.
 
 Файл подхватывается автоматически через `package-loader.os` (рекурсивное сканирование `*.os`).
+
+MCP-приложение (`src/mcp.os`) должно подключать `#Использовать "./core/Приложение"` — иначе не резолвится `СервисОкружения`.
 
 ## Актуализация
 
