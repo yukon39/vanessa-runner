@@ -31,9 +31,12 @@ src/mcp/НаборыОпций/
 
 Именование:
 
-- MCP tool: `{группа}-options` (kebab-case)
+- MCP tool: `{группа}-options` (kebab-case / dash-style)
+- Параметры tool: **как в CLI** — те же `Имя` из `&Опция` (обычно тоже kebab-case)
 - Файл: `Инструмент{Группа}Options.os` (PascalCase)
 - Описание tool: `Установить опции {назначение набора}`
+
+> **Правило:** kebab-case (dash-style) для имён tools и параметров — как в CLI. Не использовать snake_case и underscore.
 
 ## Соответствие CLI → MCP
 
