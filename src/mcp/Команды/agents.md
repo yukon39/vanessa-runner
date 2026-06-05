@@ -36,14 +36,14 @@ LLM → infobase-init { source: "…" }            →  ПодкомандаInfo
 | CLI-подкоманда | MCP tool | Файл | Параметры команды |
 |----------------|----------|------|-------------------|
 | `ПодкомандаCfCompare` | `cf-compare` | `Cf_Подкоманды/ИнструментCfCompare.os` | `second-cf`, `first-cf`, `report-dir`, `report-type`, `report-format` |
-| `ПодкомандаCfCompile` | `cf-compile` | `Cf_Подкоманды/ИнструментCfCompile.os` | `OUT`, `s src`, `list` |
+| `ПодкомандаCfCompile` | `cf-compile` | `Cf_Подкоманды/ИнструментCfCompile.os` | `OUT`, `src`, `list` |
 | `ПодкомандаCfDecompile` | `cf-decompile` | `Cf_Подкоманды/ИнструментCfDecompile.os` | `cf-file`, `OUT` |
 | `ПодкомандаCfLoad` | `cf-load` | `Cf_Подкоманды/ИнструментCfLoad.os` | `SRC`, `list`, `increment`, `update-db` |
 | `ПодкомандаCfMakeDist` | `cf-make-dist` | `Cf_Подкоманды/ИнструментCfMakeDist.os` | — |
-| `ПодкомандаCfMerge` | `cf-merge` | `Cf_Подкоманды/ИнструментCfMerge.os` | `s src`, `merge-settings`, `enable-support`, `disable-support`, `IncludeObjectsByUnresolvedRefs`, `ClearUnresolvedRefs`, `force` |
+| `ПодкомандаCfMerge` | `cf-merge` | `Cf_Подкоманды/ИнструментCfMerge.os` | `src`, `merge-settings`, `enable-support`, `disable-support`, `IncludeObjectsByUnresolvedRefs`, `ClearUnresolvedRefs`, `force` |
 | `ПодкомандаCfUnload` | `cf-unload` | `Cf_Подкоманды/ИнструментCfUnload.os` | `OUT` |
 | `ПодкомандаCfeCompare` | `cfe-compare` | `Cfe_Подкоманды/ИнструментCfeCompare.os` | `extension-name`, `first-cfe`, `second-cfe`, `report-file`, `report-type`, `report-format` |
-| `ПодкомандаCfeCompile` | `cfe-compile` | `Cfe_Подкоманды/ИнструментCfeCompile.os` | `OUT`, `s src`, `extension-name` |
+| `ПодкомандаCfeCompile` | `cfe-compile` | `Cfe_Подкоманды/ИнструментCfeCompile.os` | `OUT`, `src`, `extension-name` |
 | `ПодкомандаCfeDecompile` | `cfe-decompile` | `Cfe_Подкоманды/ИнструментCfeDecompile.os` | `cfe-file`, `OUT`, `extension-name` |
 | `ПодкомандаCfeLoad` | `cfe-load` | `Cfe_Подкоманды/ИнструментCfeLoad.os` | `SRC`, `extension-name`, `safe-mode`, `active`, … |
 | `ПодкомандаCfeUnload` | `cfe-unload` | `Cfe_Подкоманды/ИнструментCfeUnload.os` | `OUT`, `extension-name` |
@@ -55,8 +55,8 @@ LLM → infobase-init { source: "…" }            →  ПодкомандаInfo
 | `ПодкомандаClusterSessionKill` | `cluster-session-kill` | `Cluster_Подкоманды/Session_Подкоманды/ИнструментClusterSessionKill.os` | `no-lock` |
 | `ПодкомандаClusterSessionLock` | `cluster-session-lock` | `Cluster_Подкоманды/Session_Подкоманды/ИнструментClusterSessionLock.os` | `permission-code`, `denied-message` |
 | `ПодкомандаClusterSessionUnlock` | `cluster-session-unlock` | `Cluster_Подкоманды/Session_Подкоманды/ИнструментClusterSessionUnlock.os` | — |
-| `ПодкомандаEpfCompile` | `epf-compile` | `Epf_Подкоманды/ИнструментEpfCompile.os` | `SRC`, `R recursive`, `out` |
-| `ПодкомандаEpfDecompile` | `epf-decompile` | `Epf_Подкоманды/ИнструментEpfDecompile.os` | `SRC`, `R recursive`, `out` |
+| `ПодкомандаEpfCompile` | `epf-compile` | `Epf_Подкоманды/ИнструментEpfCompile.os` | `SRC`, `recursive`, `out` |
+| `ПодкомандаEpfDecompile` | `epf-decompile` | `Epf_Подкоманды/ИнструментEpfDecompile.os` | `SRC`, `recursive`, `out` |
 | `ПодкомандаInfobaseDumpDt` | `infobase-dump-dt` | `Infobase_Подкоманды/ИнструментInfobaseDumpDt.os` | `OUT` |
 | `ПодкомандаInfobaseInit` | `infobase-init` | `Infobase_Подкоманды/ИнструментInfobaseInit.os` | `source` |
 | `ПодкомандаInfobaseRestoreDt` | `infobase-restore-dt` | `Infobase_Подкоманды/ИнструментInfobaseRestoreDt.os` | `IN` |
@@ -81,12 +81,12 @@ LLM → infobase-init { source: "…" }            →  ПодкомандаInfo
 Именование:
 
 - MCP tool: `{группа}-{подкоманда}` (kebab-case / dash-style, группа — имя родительской команды без префикса `Команда`)
-- Параметры tool: **как в CLI** — те же `Имя` из `&Опция` / `&Аргумент`
+- Параметры tool: `Имя` из `&Опция` / `&Аргумент` CLI; если в CLI указаны короткая и полная формы (`s src`, `R recursive`) — в MCP только **полная** (`src`, `recursive`)
 - Файл: `Инструмент{ИмяПодкоманды}.os` (PascalCase, как класс CLI)
 - Каталог: зеркалирует `src/cli/{Группа}_Подкоманды/`
 - Описание tool: глагол в инфинитиве, понятный для LLM (`Инициализировать информационную базу`)
 
-> **Правило:** kebab-case (dash-style) для имён tools и параметров — как в CLI. Не использовать snake_case и underscore.
+> **Правило:** kebab-case (dash-style) для имён tools — как в CLI. Параметры — как в CLI, но без коротких алиасов (`s src` → `src`). Не использовать snake_case и underscore.
 
 Пример соответствия CLI → MCP:
 
@@ -105,7 +105,7 @@ LLM → infobase-init { source: "…" }            →  ПодкомандаInfo
 
 | CLI | MCP |
 |-----|-----|
-| `&Опция(Имя, Описание)` | `&ПараметрИнструмента(Имя, Описание)` |
+| `&Опция(Имя, Описание)` | `&ПараметрИнструмента(Имя, Описание)` — при `Имя = "s src"` использовать `"src"` |
 | `&ТСтрока` | `string` (тип по умолчанию) |
 | `&Флаговый` | `Тип = "boolean"` |
 | `&ТПеречисление` | `Тип = "string"`, к описанию дописать допустимые значения |
@@ -254,7 +254,7 @@ MCP-приложение (`src/mcp.os`) должно подключать `#Ис
 - [ ] Все `&Пластилин` CLI-подкоманды перенесены в инструмент
 - [ ] Все `&НаборОпций` CLI-подкоманды подключены через `КонтекстMCP`
 - [ ] Все собственные `&Опция` / `&Аргумент` → `&ПараметрИнструмента`
-- [ ] Имена и описания параметров совпадают с CLI
+- [ ] Имена параметров совпадают с CLI (полная форма, без коротких алиасов); описания совпадают
 - [ ] Имена свойств в `ПрименитьПараметрыККоманде` совпадают с CLI
 - [ ] Каждый параметр команды — блок `Если ... <> Неопределено`
 - [ ] `ВыполнитьДействие()` вызывается без дублирования бизнес-логики
